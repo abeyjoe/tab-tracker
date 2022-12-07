@@ -1,4 +1,17 @@
-console.log('Hello Here')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const morgan = require('morgan')
 
-console.log('answer = ', 5 + 6)
-console.log('This is my second VueJS Application')
+const app = express()
+app.use(morgan('combine'))
+app.use(bodyParser.json())
+app.use(cors())
+
+app.get('/status', (req, res) => {
+  res.send({
+    message: 'hello abiodun!'
+  })
+})
+
+app.listen(5000)
