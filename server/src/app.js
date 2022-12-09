@@ -4,7 +4,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 const app = express()
-app.use(morgan('combine'))
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
@@ -14,4 +14,4 @@ app.get('/status', (req, res) => {
   })
 })
 
-app.listen(5000)
+app.listen(process.env.PORT || 5000)
